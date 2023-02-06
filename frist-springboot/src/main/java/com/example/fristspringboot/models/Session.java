@@ -5,9 +5,9 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import javax.persistence.*;
 import java.util.List;
 
-@Entity(name = "sessions")
+@Entity
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-//@Table(name = "sessions", schema = "conference_app")
+@Table(name = "sessions", schema = "conference_app")
 public class Session {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,6 +19,7 @@ public class Session {
     @ManyToMany
     @JoinTable(
             name = "session_speakers",
+            schema = "conference_app",
             joinColumns = @JoinColumn(name = "session_id"),
             inverseJoinColumns = @JoinColumn(name = "speaker_id")
     )

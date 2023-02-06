@@ -7,8 +7,9 @@ import org.hibernate.annotations.Type;
 import javax.persistence.*;
 import java.util.List;
 
-@Entity(name = "speakers")
+@Entity
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+@Table(name = "speakers", schema = "conference_app")
 public class Speaker {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
